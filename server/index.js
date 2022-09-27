@@ -23,6 +23,9 @@ mongoose
 
 const createServer = async () => {
   const app = express();
+  app.get("/", (req, res) => {
+    res.send("Hi there");
+  });
   app.use(cors());
 
   const apolloServer = new ApolloServer({
