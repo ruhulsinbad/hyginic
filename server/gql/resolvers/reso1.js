@@ -16,7 +16,10 @@ const reso1 = {
 
   Mutation: {
     register: async (parent, { user }, context, info) => {
-      const { name, email, password } = user;
+      const { name, email, password, confirmPassword } = user;
+      if (confirmPassword !== password) {
+        throw new Error("Password does not match");
+      }
       const existUser = await User.findOne({ email });
       if (existUser) {
         throw new Error("This email is already used");

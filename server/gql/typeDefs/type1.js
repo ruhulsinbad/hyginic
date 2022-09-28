@@ -23,6 +23,7 @@ const type1 = gql`
     name: String!
     email: String!
     password: String!
+    confirmPassword: String!
   }
 
   input loginInput {
